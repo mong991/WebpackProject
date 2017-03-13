@@ -1,0 +1,5 @@
+{
+  "presets": ["babel-preset-env", "react"]
+}
+
+//donot trans jsx to es5 => "react"
