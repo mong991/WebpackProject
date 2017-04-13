@@ -14,7 +14,8 @@ module.exports = {
   },
    output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js' //output filename will get entry key become filename eg.bundle.js vendor.js
+    filename: '[name].[chunkhash].js' //output filename will get entry key become filename eg.bundle.js vendor.js
+    //chunkhash run build will add time hash string let browser will know file changed
   },
   module: {
     rules: [
@@ -31,7 +32,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      name: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
